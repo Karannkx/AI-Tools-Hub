@@ -1,6 +1,6 @@
 'use client';
-export const dynamic = "force-dynamic";
 
+import { Suspense } from "react";
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { ToolCard } from '@/components/tool-card';
@@ -8,7 +8,15 @@ import { SearchFilters } from '@/components/search-filters';
 import { getAllTools, filterTools, sortTools, searchTools } from '@/lib/data';
 import { AITool } from '@/types';
 
-export default function ToolsPage() {
+export default function ToolsPageWrapper() {
+  return (
+    <Suspense fallback={<div>Loading tools...</div>}>
+      <ToolsPage />
+    </Suspense>
+  );
+}
+
+function ToolsPage() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || 'all';
   const initialPricing = searchParams.get('pricing') || 'all';
@@ -28,9 +36,7 @@ export default function ToolsPage() {
   const filteredTools = useMemo(() => {
     let tools: AITool[] = allTools;
 
-    if (searchQuery) {
-      tools = searchTools(searchQuery);
-    }
+    if (searchQuery) tools = searchTools(searchQuery);
 
     tools = filterTools(tools, {
       category: selectedCategory,
