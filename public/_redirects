@@ -1,0 +1,6 @@
+
+# Redirects for single-page application
+/*    /index.html   200
+
+# Redirect old paths
+/home    /    301
