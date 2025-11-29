@@ -72,7 +72,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-primary/10 to-purple-500/10 transition-transform group-hover:scale-110">
               <img 
-                src="https://img.lovepik.com/png/20231104/chip-ai-human-intelligence-technology-chip-high-tech-circuit-board_493662_wh1200.png"
+                src="https://i0.wp.com/aitoolsarena.com/wp-content/uploads/2023/02/cropped-AI-Tools-Arena-512.png?fit=512%2C512&ssl=1"
                 alt="AI Tools Hub Logo"
                 className="h-full w-full object-cover p-0.5"
               />
